@@ -16,23 +16,17 @@ export default async function Home() {
     <>
       <Header />
       <main className="min-h-screen bg-background">
-        {/* Hero Section */}
         <section className="py-8 px-4">
           <div className="mx-auto max-w-7xl">
             <PromoBanner />
           </div>
         </section>
-
         <CategoryGrid categories={categories} />
-
-        {/* Quick Deals Carousel */}
         <section className="py-5 px-4">
           <div className="mx-auto max-w-7xl">
             <QuickDealsCarousel quickDealProducts={products} />
           </div>
         </section>
-
-        {/* Featured Products */}
         <section className="py-5 px-4">
           <div className="mx-auto max-w-7xl">
             <div className="flex items-center justify-between mb-12">

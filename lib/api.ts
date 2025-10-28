@@ -44,7 +44,6 @@ export async function getProductsByCategory(
   }
 }
 
-// Utility function to find top 10 products by rating and price
 export function getTopProducts(products: Product[], limit = 10): Product[] {
   return products
     .sort((a, b) => {

@@ -7,7 +7,7 @@ import { MobileNav } from "@/components/mobile-nav";
 
 const geistSans = Geist({ subsets: ["latin"] });
 export const metadata: Metadata = {
-  title: "ShopHub - Modern E-commerce Store",
+  title: "E-Commerce - Modern E-commerce Store",
   description: "Discover amazing products at great prices",
   generator: "v0.app",
 };
