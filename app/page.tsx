@@ -4,10 +4,14 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { ProductCard } from "@/components/product-card";
 import { PromoBanner } from "@/components/promo-banner";
+import { QuickDealsCarousel } from "@/components/quick-deals-carousel";
 
 export default async function Home() {
   const products = await getProducts();
   const topProducts = getTopProducts(products, 8);
+  const quickDealProducts = products
+    .sort(() => Math.random() - 0.5)
+    .slice(0, 12);
 
   return (
     <>
@@ -17,6 +21,13 @@ export default async function Home() {
         <section className="py-8 px-4">
           <div className="mx-auto max-w-7xl">
             <PromoBanner />
+          </div>
+        </section>
+
+        {/* Quick Deals Carousel */}
+        <section className="py-12 px-4 bg-gray-50">
+          <div className="mx-auto max-w-7xl">
+            <QuickDealsCarousel products={quickDealProducts} />
           </div>
         </section>
 
