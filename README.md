@@ -38,32 +38,24 @@ A modern, fully-featured e-commerce web application built with Next.js, React, a
 ### Prerequisites
 
 - Node.js 18+
-- npm or yarn package manager
+- npm  package manager
 
 ### Steps
 
 1. **Clone the repository**
-   \`\`\`bash
+   \`\`\`
    git clone <repository-url>
    cd ecommerce-store
    \`\`\`
 
 2. **Install dependencies**
-   \`\`\`bash
+   \`\`\`
    npm install
-
-   # or
-
-   yarn install
    \`\`\`
 
 3. **Run the development server**
-   \`\`\`bash
+   \`\`\`
    npm run dev
-
-   # or
-
-   yarn dev
    \`\`\`
 
 4. **Open in browser**
@@ -141,10 +133,6 @@ Currently, this project uses the public FakeStore API and doesn't require enviro
 NEXT_PUBLIC_API_URL=your_api_url
 \`\`\`
 
-## Available Scripts
-
-\`\`\`bash
-
 # Development server
 
 npm run dev
@@ -157,10 +145,6 @@ npm run build
 
 npm start
 
-# Run linter
-
-npm run lint
-\`\`\`
 
 ## Browser Support
 
@@ -169,30 +153,6 @@ npm run lint
 - Safari (latest)
 - Edge (latest)
 - Mobile browsers (iOS Safari, Chrome Mobile)
-
-## Future Enhancements
-
-- User authentication and accounts
-- Real payment integration (Stripe)
-- Order history and tracking
-- Product reviews and ratings
-- Wishlist functionality
-- Admin dashboard
-- Inventory management
-- Email notifications
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-This project is open source and available under the MIT License.
-
-## Support
-
-For issues, questions, or suggestions, please open an issue on GitHub.
-
 ---
 
 **Built with ❤️ using Next.js and Tailwind CSS**
