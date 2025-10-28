@@ -1,10 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useCartStore } from "@/lib/store";
 import { ShoppingCart, Menu, X, Moon, Sun } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useTheme } from "./theme-provider";
+import { SearchBar } from "./search-bar";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,12 +24,13 @@ export function Header() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <Link href="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-primary rounded flex items-center justify-center">
-                <span className="text-primary-foreground font-bold">S</span>
-              </div>
-              <span className="font-bold text-lg hidden sm:inline">
-                ShopHub
-              </span>
+              <Image
+                src="/logo.png"
+                alt="E-Commerce Logo"
+                width={70}
+                height={40}
+                className="h-10 w-auto"
+              />
             </Link>
           </div>
         </div>
@@ -40,28 +43,38 @@ export function Header() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-primary rounded flex items-center justify-center">
-              <span className="text-primary-foreground font-bold">S</span>
-            </div>
-            <span className="font-bold text-lg hidden sm:inline">ShopHub</span>
+            <Image
+              src="/logo.png"
+              alt="E-Commerce Logo"
+              width={40}
+              height={40}
+              className="h-10 w-auto"
+            />
           </Link>
 
+          <div className="hidden md:flex flex-1 justify-center">
+            <SearchBar />
+          </div>
+
           <nav className="hidden md:flex items-center gap-8">
-            <Link href="/" className="text-sm hover:text-accent transition">
+            <Link
+              href="/"
+              className="text-sm hover:text-primary transition font-medium"
+            >
               Home
             </Link>
             <Link
               href="/products"
-              className="text-sm hover:text-accent transition"
+              className="text-sm hover:text-primary transition font-medium"
             >
               Products
             </Link>
             <Link
               href="/cart"
-              className="flex items-center gap-2 text-sm hover:text-accent transition"
+              className="flex items-center gap-2 text-sm hover:text-primary transition font-medium"
             >
               <ShoppingCart className="w-5 h-5" />
-              <span className="bg-accent text-accent-foreground rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold">
+              <span className="bg-primary text-primary-foreground rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold">
                 {totalItems}
               </span>
             </Link>
@@ -103,20 +116,27 @@ export function Header() {
           </div>
         </div>
 
+        <div className="md:hidden pb-4">
+          <SearchBar />
+        </div>
+
         {isMenuOpen && (
           <nav className="md:hidden pb-4 flex flex-col gap-4">
-            <Link href="/" className="text-sm hover:text-accent transition">
+            <Link
+              href="/"
+              className="text-sm hover:text-primary transition font-medium"
+            >
               Home
             </Link>
             <Link
               href="/products"
-              className="text-sm hover:text-accent transition"
+              className="text-sm hover:text-primary transition font-medium"
             >
               Products
             </Link>
             <Link
               href="/cart"
-              className="flex items-center gap-2 text-sm hover:text-accent transition"
+              className="flex items-center gap-2 text-sm hover:text-primary transition font-medium"
             >
               <ShoppingCart className="w-5 h-5" />
               Cart ({totalItems})

@@ -3,6 +3,7 @@ import { Header } from "@/components/header";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { ProductCard } from "@/components/product-card";
+import { PromoBanner } from "@/components/promo-banner";
 
 export default async function Home() {
   const products = await getProducts();
@@ -13,22 +14,9 @@ export default async function Home() {
       <Header />
       <main className="min-h-screen bg-background">
         {/* Hero Section */}
-        <section className="bg-primary text-primary-foreground py-20 px-4">
-          <div className="mx-auto max-w-7xl text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Welcome to ShopHub
-            </h1>
-            <p className="text-lg text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
-              Discover amazing products at unbeatable prices. Shop from
-              thousands of items across all categories.
-            </p>
-            <Link
-              href="/products"
-              className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition"
-            >
-              Shop Now
-              <ArrowRight className="w-5 h-5" />
-            </Link>
+        <section className="py-8 px-4">
+          <div className="mx-auto max-w-7xl">
+            <PromoBanner />
           </div>
         </section>
 
