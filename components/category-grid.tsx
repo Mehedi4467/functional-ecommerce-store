@@ -11,6 +11,11 @@ const categoryImages: Record<string, string> = {
   jewelery: "/assorted-jewelry-display.png",
   "men's clothing": "/mens-clothing-display.png",
   "women's clothing": "/womens-clothing.png",
+  "phone accessories": "/phone-ac.jpg",
+  "sports and fitness": "/sports.jpg",
+  watches: "/watch.jpg",
+  "pets food": "/pet_foot.jpg",
+  "home and kitchen": "/home.jpg",
 };
 
 const categoryLabels: Record<string, string> = {
@@ -18,10 +23,24 @@ const categoryLabels: Record<string, string> = {
   jewelery: "Jewelry",
   "men's clothing": "Men's Clothing",
   "women's clothing": "Women's Clothing",
+  "phone accessories": "Phone Accessories",
+  "sports and fitness": "Sports and Fitness",
+  watches: "Watches",
+  "pets food": "Pets Food",
+  "home and kitchen": "Home and Kitchen",
 };
 
 export function CategoryGrid({ categories }: CategoryGridProps) {
   const router = useRouter();
+
+  const addCategories = [
+    ...categories,
+    "phone accessories",
+    "sports and fitness",
+    "watches",
+    "pets food",
+    "home and kitchen",
+  ];
 
   const handleCategoryClick = (category: string) => {
     router.push(`/search?category=${encodeURIComponent(category)}`);
@@ -31,8 +50,8 @@ export function CategoryGrid({ categories }: CategoryGridProps) {
     <section className="py-12 px-4">
       <div className="mx-auto max-w-7xl">
         <h2 className="text-2xl font-bold mb-8">Shop By Category</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-          {categories.map((category) => (
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-9 justify-between gap-4">
+          {addCategories.map((category) => (
             <button
               key={category}
               onClick={() => handleCategoryClick(category)}

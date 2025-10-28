@@ -26,14 +26,14 @@ export default async function Home() {
         <CategoryGrid categories={categories} />
 
         {/* Quick Deals Carousel */}
-        <section className="py-10 px-4 bg-gray-50">
+        <section className="py-5 px-4">
           <div className="mx-auto max-w-7xl">
             <QuickDealsCarousel quickDealProducts={products} />
           </div>
         </section>
 
         {/* Featured Products */}
-        <section className="py-10 px-4">
+        <section className="py-5 px-4">
           <div className="mx-auto max-w-7xl">
             <div className="flex items-center justify-between mb-12">
               <div>
@@ -63,7 +63,7 @@ export default async function Home() {
           <div className="mx-auto max-w-7xl">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
               <div>
-                <h3 className="font-bold mb-4">About ShopHub</h3>
+                <h3 className="font-bold mb-4">About E-Commerce</h3>
                 <p className="text-sm text-muted-foreground">
                   Your trusted online shopping destination for quality products.
                 </p>
@@ -115,7 +115,7 @@ export default async function Home() {
               </div>
             </div>
             <div className="border-t pt-8 text-center text-sm text-muted-foreground">
-              <p>&copy; 2025 ShopHub. All rights reserved.</p>
+              <p>&copy; 2025 E-Commerce. All rights reserved.</p>
             </div>
           </div>
         </footer>

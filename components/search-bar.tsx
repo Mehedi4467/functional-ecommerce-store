@@ -1,21 +1,21 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { useRouter } from "next/navigation"
-import { Search } from "lucide-react"
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { Search } from "lucide-react";
 
 export function SearchBar() {
-  const [query, setQuery] = useState("")
-  const router = useRouter()
+  const [query, setQuery] = useState("");
+  const router = useRouter();
 
   const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     if (query.trim()) {
-      router.push(`/search?q=${encodeURIComponent(query)}`)
+      router.push(`/search?q=${encodeURIComponent(query)}`);
     }
-  }
+  };
 
   return (
     <form onSubmit={handleSearch} className="flex-1 max-w-md mx-4">
@@ -29,12 +29,12 @@ export function SearchBar() {
         />
         <button
           type="submit"
-          className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-primary transition"
+          className="absolute cursor-pointer right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-primary transition"
           aria-label="Search"
         >
           <Search className="w-5 h-5" />
         </button>
       </div>
     </form>
-  )
+  );
 }

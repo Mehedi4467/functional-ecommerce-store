@@ -24,7 +24,7 @@ export function QuickDealCard({ product }: QuickDealCardProps) {
 
   return (
     <Link href={`/products/${product.id}`}>
-      <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow h-full flex flex-col border border-gray-100">
+      <div className=" rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow h-full flex flex-col border border-gray-100">
         {/* Image container with discount badge */}
         <div className="relative w-full h-40 bg-gray-100 overflow-hidden">
           <img
