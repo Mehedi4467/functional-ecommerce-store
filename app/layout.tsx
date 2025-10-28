@@ -19,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.className} bg-background text-foreground`}>
+      <body className={`${geistSans.className} bg-background pb-20 md:pb-0 text-foreground`}>
         <ThemeProvider>
           {children}
           <MobileNav />
