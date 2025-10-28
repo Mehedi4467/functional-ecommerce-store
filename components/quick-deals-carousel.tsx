@@ -2,18 +2,32 @@
 
 import type { Product } from "@/lib/store";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { QuickDealCard } from "./quick-deal-card";
 
 interface QuickDealsCarouselProps {
-  products: Product[];
+  quickDealProducts: Product[];
 }
 
-export function QuickDealsCarousel({ products }: QuickDealsCarouselProps) {
+export function QuickDealsCarousel({
+  quickDealProducts,
+}: QuickDealsCarouselProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
+
+  const [products, setProducts] = useState<Product[]>([]);
+
+  useEffect(() => {
+    if (quickDealProducts && quickDealProducts?.length > 0) {
+      const sliceProduct = quickDealProducts
+        ? quickDealProducts.sort(() => Math.random() - 0.5).slice(0, 12)
+        : [];
+
+      setProducts(sliceProduct);
+    }
+  }, [quickDealProducts]);
 
   const checkScroll = () => {
     if (scrollContainerRef.current) {
@@ -54,7 +68,7 @@ export function QuickDealsCarousel({ products }: QuickDealsCarouselProps) {
       </div>
 
       {/* Carousel */}
-      <div className="relative">
+      <div className="relative ">
         {/* Left scroll button */}
         {canScrollLeft && (
           <button
@@ -70,7 +84,7 @@ export function QuickDealsCarousel({ products }: QuickDealsCarouselProps) {
         <div
           ref={scrollContainerRef}
           onScroll={checkScroll}
-          className="flex gap-4 overflow-x-auto scroll-smooth pb-2 px-2"
+          className="flex gap-4 overflow-x-auto scroll-smooth pb-2 px-2 scroll-bar-hidden"
           style={{ scrollBehavior: "smooth" }}
         >
           {products.map((product) => (

@@ -5,7 +5,6 @@ import type React from "react";
 import { useEffect, useState } from "react";
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [isDark, setIsDark] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -17,7 +16,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     ).matches;
 
     const shouldBeDark = savedTheme ? savedTheme === "dark" : prefersDark;
-    setIsDark(shouldBeDark);
 
     if (shouldBeDark) {
       document.documentElement.classList.add("dark");
@@ -25,19 +23,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       document.documentElement.classList.remove("dark");
     }
   }, []);
-
-  const toggleTheme = () => {
-    const newIsDark = !isDark;
-    setIsDark(newIsDark);
-
-    if (newIsDark) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  };
 
   if (!mounted) return <>{children}</>;
 

@@ -75,7 +75,7 @@ export function Header() {
             >
               <ShoppingCart className="w-5 h-5" />
               <span className="bg-primary text-primary-foreground rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold">
-                {totalItems}
+                {totalItems || 0}
               </span>
             </Link>
             <button

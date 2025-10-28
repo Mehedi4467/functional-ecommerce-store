@@ -1,17 +1,16 @@
-import { getProducts, getTopProducts } from "@/lib/api";
+import { getCategories, getProducts, getTopProducts } from "@/lib/api";
 import { Header } from "@/components/header";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { ProductCard } from "@/components/product-card";
 import { PromoBanner } from "@/components/promo-banner";
 import { QuickDealsCarousel } from "@/components/quick-deals-carousel";
+import { CategoryGrid } from "@/components/category-grid";
 
 export default async function Home() {
   const products = await getProducts();
   const topProducts = getTopProducts(products, 8);
-  const quickDealProducts = products
-    .sort(() => Math.random() - 0.5)
-    .slice(0, 12);
+  const categories = await getCategories();
 
   return (
     <>
@@ -24,15 +23,17 @@ export default async function Home() {
           </div>
         </section>
 
+        <CategoryGrid categories={categories} />
+
         {/* Quick Deals Carousel */}
-        <section className="py-12 px-4 bg-gray-50">
+        <section className="py-10 px-4 bg-gray-50">
           <div className="mx-auto max-w-7xl">
-            <QuickDealsCarousel products={quickDealProducts} />
+            <QuickDealsCarousel quickDealProducts={products} />
           </div>
         </section>
 
         {/* Featured Products */}
-        <section className="py-16 px-4">
+        <section className="py-10 px-4">
           <div className="mx-auto max-w-7xl">
             <div className="flex items-center justify-between mb-12">
               <div>
@@ -58,7 +59,7 @@ export default async function Home() {
         </section>
 
         {/* Footer */}
-        <footer className="bg-muted border-t py-12 px-4">
+        <footer className="bg-muted border-t py-10 px-4">
           <div className="mx-auto max-w-7xl">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
               <div>

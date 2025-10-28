@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { Home, Search, ShoppingBag, ShoppingCart, User } from "lucide-react"
-import { useCartStore } from "@/lib/store"
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Home, Search, ShoppingBag, ShoppingCart, User } from "lucide-react";
+import { useCartStore } from "@/lib/store";
 
 export function MobileNav() {
-  const pathname = usePathname()
-  const totalItems = useCartStore((state) => state.getTotalItems())
+  const pathname = usePathname();
+  const totalItems = useCartStore((state) => state.getTotalItems());
 
-  const isActive = (path: string) => pathname === path
+  const isActive = (path: string) => pathname === path;
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-background border-t border-border">
@@ -18,7 +18,9 @@ export function MobileNav() {
         <Link
           href="/"
           className={`flex flex-col items-center justify-center gap-1 py-2 px-3 rounded-lg transition ${
-            isActive("/") ? "text-primary" : "text-muted-foreground hover:text-foreground"
+            isActive("/")
+              ? "text-primary"
+              : "text-muted-foreground hover:text-foreground"
           }`}
         >
           <Home className="w-6 h-6" />
@@ -29,7 +31,9 @@ export function MobileNav() {
         <Link
           href="/products"
           className={`flex flex-col items-center justify-center gap-1 py-2 px-3 rounded-lg transition ${
-            isActive("/products") ? "text-primary" : "text-muted-foreground hover:text-foreground"
+            isActive("/products")
+              ? "text-primary"
+              : "text-muted-foreground hover:text-foreground"
           }`}
         >
           <Search className="w-6 h-6" />
@@ -48,13 +52,15 @@ export function MobileNav() {
         <Link
           href="/cart"
           className={`flex flex-col items-center justify-center gap-1 py-2 px-3 rounded-lg transition relative ${
-            isActive("/cart") ? "text-primary" : "text-muted-foreground hover:text-foreground"
+            isActive("/cart")
+              ? "text-primary"
+              : "text-muted-foreground hover:text-foreground"
           }`}
         >
           <ShoppingCart className="w-6 h-6" />
-          {totalItems > 0 && (
+          {totalItems && totalItems > 0 && (
             <span className="absolute top-0 right-0 bg-primary text-primary-foreground text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
-              {totalItems}
+              {totalItems || 0}
             </span>
           )}
           <span className="text-xs font-medium">Cart</span>
@@ -64,7 +70,9 @@ export function MobileNav() {
         <Link
           href="/products"
           className={`flex flex-col items-center justify-center gap-1 py-2 px-3 rounded-lg transition ${
-            isActive("/profile") ? "text-primary" : "text-muted-foreground hover:text-foreground"
+            isActive("/profile")
+              ? "text-primary"
+              : "text-muted-foreground hover:text-foreground"
           }`}
         >
           <User className="w-6 h-6" />
@@ -72,5 +80,5 @@ export function MobileNav() {
         </Link>
       </div>
     </nav>
-  )
+  );
 }
