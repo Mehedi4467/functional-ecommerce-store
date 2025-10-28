@@ -38,7 +38,7 @@ A modern, fully-featured e-commerce web application built with Next.js, React, a
 ### Prerequisites
 
 - Node.js 18+
-- npm  package manager
+- npm package manager
 
 ### Steps
 
@@ -59,6 +59,8 @@ A modern, fully-featured e-commerce web application built with Next.js, React, a
    \`\`\`
 
 4. **Open in browser**
+   Live: Navigate to [https://ecommerce-store-wine-eight.vercel.app/](https://ecommerce-store-wine-eight.vercel.app/) to see the Live application
+   Local:
    Navigate to [http://localhost:3000](http://localhost:3000) to see the application
 
 ## Project Structure
@@ -145,7 +147,6 @@ npm run build
 
 npm start
 
-
 ## Browser Support
 
 - Chrome (latest)
@@ -153,6 +154,7 @@ npm start
 - Safari (latest)
 - Edge (latest)
 - Mobile browsers (iOS Safari, Chrome Mobile)
+
 ---
 
 **Built with ❤️ using Next.js and Tailwind CSS**
